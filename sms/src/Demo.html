@@ -1,0 +1,119 @@
+<div class="mx-auto max-w-7xl">
+
+    <div class="bg-white shadow-md rounded-md p-6">
+
+        <ul class="nav nav-tabs nav-tabs-bordered flex" role="tablist">
+            <li class="nav-item flex-1" role="presentation">
+                <button class="nav-link active text-center py-2 border-b-2 border-transparent hover:border-blue-500 focus:outline-none" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="true" role="tab">Overview</button>
+            </li>
+            <li class="nav-item flex-1" role="presentation">
+                <button class="nav-link text-center py-2 border-b-2 border-transparent hover:border-blue-500 focus:outline-none" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false" tabindex="-1" role="tab">Edit Profile</button>
+            </li>
+        </ul>
+
+        <div class="tab-content pt-2">
+
+            <div class="tab-pane fade show active profile-overview" id="profile-overview" role="tabpanel">
+
+                <div class="p-6">
+                    <h5 class="text-xl font-bold mb-4">Profile Details</h5>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-1">
+                            <label class="block mb-2 text-gray-600">Full Name</label>
+                            <div class="text-gray-800">Meena</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="block mb-2 text-gray-600">Phone</label>
+                            <div class="text-gray-800">5345323387</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="block mb-2 text-gray-600">Email</label>
+                            <div class="text-gray-800">meenam.mine@gmail.com</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="block mb-2 text-gray-600">Country</label>
+                            <div class="text-gray-800">US</div>
+                        </div>
+                        <div class="col-span-full">
+                            <label class="block mb-2 text-gray-600">Address</label>
+                            <div class="text-gray-800">123 Testing purpose 12345</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
+                <form action="/BLUECHIP/updatestu" method="post" enctype="multipart/form-data" class="p-6">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="profileImage" class="block col-span-1 text-gray-600">Profile Image</label>
+                        <div class="col-span-1">
+                            <div class="flex items-center space-x-4">
+                                <div id="selectedPhotoPreview" class="w-24 h-24 overflow-hidden rounded-md">
+                                    <img src="../admin/template/images/UserLogo.jpg" alt="Profile Photo" class="object-cover w-full h-full">
+                                </div>
+                                <label for="profilePhotoInput" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-upload"></i> Upload Photo
+                                    <input name="profileImage" type="file" id="profilePhotoInput" class="hidden" accept="image/*" onchange="displaySelectedPhoto(this)">
+                                    <input type="hidden" name="hiddenimage" value="UserLogo.jpg">
+                                </label>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="removeProfilePhoto()">
+                                    <i class="bi bi-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="fullName" class="block col-span-1 text-gray-600">Full Name</label>
+                        <div class="col-span-1">
+                            <input type="hidden" value="31" name="id" class="hidden">
+                            <input name="name" type="text" class="form-control" id="fullName" placeholder="Name" value="Meena">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="Phone" class="block col-span-1 text-gray-600">Phone</label>
+                        <div class="col-span-1">
+                            <input name="phoneno" type="number" class="form-control" id="Phone" placeholder="Number" value="5345323387">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="Email" class="block col-span-1 text-gray-600">Email</label>
+                        <div class="col-span-1">
+                            <input name="email" type="email" class="form-control" id="Email" placeholder="Email Address" value="meenam.mine@gmail.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="Country" class="block col-span-1 text-gray-600">Country</label>
+                        <div class="col-span-1">
+                            <input name="cname" type="text" class="form-control" id="Country" placeholder="Country" value="US">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="Address" class="block col-span-1 text-gray-600">Address</label>
+                        <div class="col-span-1">
+                            <input name="address" type="text" class="form-control" id="Address" placeholder="Address" value="123 Testing purpose 12345">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label for="SSLC" class="block col-span-1 text-gray-600">Enter Your SSLC Percentage</label>
+                        <div class="col-span-1">
+                            <input name="sslc" type="text" class="form-control" id="fullName" placeholder="Percentage" value="45">
+                        </div>
+                    </div>
+
+                    <!-- Rest of the form fields -->
+
+                    <div class="text-center">
+                        <input class="btn btn-primary" onclick="clickme()" type="submit" value="Save Changes">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
